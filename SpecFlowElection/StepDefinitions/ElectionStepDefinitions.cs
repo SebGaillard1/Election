@@ -12,6 +12,8 @@ namespace SpecFlowElection.StepDefinitions
     {
         private Election.Election election = new Election.Election();
         private Candidate? winner;
+        private Dictionary<Candidate, (int Votes, double Percentage)> results;
+
 
         [Given(@"a candidate has more than 50% of the vote")]
         public void GivenACandidateHasMoreThan50PercentOfTheVote()
@@ -121,6 +123,42 @@ namespace SpecFlowElection.StepDefinitions
         public void ThenNoWinnerIsDeclaredDueToATie()
         {
             winner.Should().BeNull();
+        }
+
+        [Given(@"votes are cast as follows")]
+        public void GivenVotesAreCastAsFollows(Table table)
+        {
+            foreach (var row in table.Rows)
+            {
+                var candidate = new Candidate(row["Candidate"]);
+                int votes = int.Parse(row["Votes"]);
+                for (int i = 0; i < votes; i++)
+                {
+                    election.AddVote(candidate);
+                }
+            }
+            election.CloseElection();
+        }
+
+        [When(@"we check the election results")]
+        public void WhenWeCheckTheElectionResults()
+        {
+            results = election.GetResults();
+        }
+
+        [Then(@"the election results should show the following details")]
+        public void ThenTheElectionResultsShouldShowTheFollowingDetails(Table table)
+        {
+            foreach (var row in table.Rows)
+            {
+                var candidateName = row["Candidate"];
+                var expectedVotes = int.Parse(row["Votes"]);
+                var expectedPercentage = double.Parse(row["Percentage"]);
+
+                var candidateResult = results.FirstOrDefault(r => r.Key.Name == candidateName).Value;
+                candidateResult.Votes.Should().Be(expectedVotes);
+                candidateResult.Percentage.Should().BeApproximately(expectedPercentage, 0.1);
+            }
         }
     }
 }

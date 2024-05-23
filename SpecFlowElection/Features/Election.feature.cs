@@ -126,50 +126,6 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Display vote counts and percentages at election close")]
-        [Xunit.TraitAttribute("FeatureTitle", "Election")]
-        [Xunit.TraitAttribute("Description", "Display vote counts and percentages at election close")]
-        public virtual void DisplayVoteCountsAndPercentagesAtElectionClose()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Display vote counts and percentages at election close", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 12
-  this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 13
-    testRunner.Given("the election is closed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 14
-    testRunner.And("votes have been cast for multiple candidates", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 15
-    testRunner.When("we check the result of the election", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 16
-    testRunner.Then("the number of votes and percentages for each candidate are displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
         [Xunit.SkippableFactAttribute(DisplayName="No candidate with over 50%, proceed to second round")]
         [Xunit.TraitAttribute("FeatureTitle", "Election")]
         [Xunit.TraitAttribute("Description", "No candidate with over 50%, proceed to second round")]
@@ -297,6 +253,68 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
 #line 34
     testRunner.Then("no winner is declared due to a tie", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Display the number of votes and percentages at election close")]
+        [Xunit.TraitAttribute("FeatureTitle", "Election")]
+        [Xunit.TraitAttribute("Description", "Display the number of votes and percentages at election close")]
+        public virtual void DisplayTheNumberOfVotesAndPercentagesAtElectionClose()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Display the number of votes and percentages at election close", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 36
+    this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Candidate",
+                            "Votes"});
+                table1.AddRow(new string[] {
+                            "Alice",
+                            "70"});
+                table1.AddRow(new string[] {
+                            "Bob",
+                            "30"});
+#line 37
+    testRunner.Given("votes are cast as follows", ((string)(null)), table1, "Given ");
+#line hidden
+#line 41
+    testRunner.When("we check the election results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Candidate",
+                            "Votes",
+                            "Percentage"});
+                table2.AddRow(new string[] {
+                            "Alice",
+                            "70",
+                            "60.0"});
+                table2.AddRow(new string[] {
+                            "Bob",
+                            "30",
+                            "30.0"});
+#line 42
+    testRunner.Then("the election results should show the following details", ((string)(null)), table2, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

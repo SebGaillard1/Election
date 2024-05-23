@@ -9,11 +9,11 @@ Scenario: Candidate wins with more than 50% of the vote in the first round
     When we check the result of the first round
     Then this candidate has won the election
 
-  Scenario: Display vote counts and percentages at election close
-    Given the election is closed
-    And votes have been cast for multiple candidates
-    When we check the result of the election
-    Then the number of votes and percentages for each candidate are displayed
+  #Scenario: Display vote counts and percentages at election close
+  #  Given the election is closed
+  #  And votes have been cast for multiple candidates
+  #  When we check the result of the election
+  #  Then the number of votes and percentages for each candidate are displayed
 
   Scenario: No candidate with over 50%, proceed to second round
     Given no candidate has more than 50% of the vote
@@ -32,3 +32,14 @@ Scenario: Candidate wins with more than 50% of the vote in the first round
     And the second round of the election is closed
     When we check the result of the second round
     Then no winner is declared due to a tie
+
+    Scenario: Display the number of votes and percentages at election close
+    Given votes are cast as follows
+        | Candidate | Votes |
+        | Alice     | 70    |
+        | Bob       | 30    |
+    When we check the election results
+    Then the election results should show the following details
+        | Candidate | Votes | Percentage |
+        | Alice     | 70    | 70.0       |
+        | Bob       | 30    | 30.0       |
