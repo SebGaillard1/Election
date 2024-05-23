@@ -199,10 +199,10 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 19
-    testRunner.Given("the first round of the election is closed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("no candidate has more than 50% of the vote", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 20
-    testRunner.And("no candidate has more than 50% of the vote", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("the first round of the election is closed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 21
     testRunner.When("we check the result of the first round", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -243,10 +243,10 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 25
-    testRunner.Given("the second round of the election is closed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("candidates have contested the second round", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 26
-    testRunner.And("candidates have contested the second round", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("the second round of the election is closed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 27
     testRunner.When("we check the result of the second round", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -287,10 +287,10 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 31
-    testRunner.Given("the second round of the election is closed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("candidates have the same percentage of votes in the second round", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 32
-    testRunner.And("candidates have the same percentage of votes in the second round", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("the second round of the election is closed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 33
     testRunner.When("we check the result of the second round", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
